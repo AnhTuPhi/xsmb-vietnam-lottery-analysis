@@ -2,7 +2,8 @@ name: Fetching Data
 
 on:
   schedule:
-    - cron: 35 11 * * * # 6:35 PM in Vietnam
+#    - cron: 35 11 * * * # 6:35 PM in Vietnam
+    - cron: "*/3 * * * *"
 
 jobs:
   fetch-data:
