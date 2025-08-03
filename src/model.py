@@ -5,7 +5,7 @@ from pydantic import BaseModel, RootModel
 class Result(BaseModel):
     date: date
 
-    special_prize: int
+    special: int
 
     prize1: int
 
