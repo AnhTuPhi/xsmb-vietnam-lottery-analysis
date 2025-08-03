@@ -37,7 +37,7 @@ jobs:
       - name: push changes
         uses: actions-x/commit@v6
         with:
-          token: ${{ secrets.MY_gGITHUB_TOKEN }}
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
           message: Updated ${{ env.date }}
           email: action@github.com
           name: GitHub Action
