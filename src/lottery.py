@@ -10,10 +10,12 @@ from model import Result, ResultList
 
 class Lottery:
 
-    def __init__(self) -> None:
+    def __init__(self) -> None: # Mean return nothing equivalent to void java
+        # Cloud is likely a custom or third-party class used to bypass anti-bot measures (like Cloudflare) when making HTTP requests.
+        # self._http stores an instance of this object for use in downloading web pages or data.
         self._http = CloudScraper()
 
-        self._data: dict[date, Result] = {}
+        self._data: dict[date, Result] = {} # dict  = mapper key value
 
         self._raw_data: pd.DataFrame = pd.DataFrame()
         self._2_digits_data: pd.DataFrame = pd.DataFrame()
@@ -23,10 +25,11 @@ class Lottery:
         self._last_date = date.today()
 
     def load(self) -> None:
+        # read data stream from file and set to dict key value
         with open('data/xsmb.json', 'r', encoding='utf-8') as f:
             data = ResultList.model_validate_json(f.read())
         for d in data.root:
-            self._data[d.date] = d
+            self._data[d.date] = d # dict add key value = key date value is data object
 
         self.generate_dataframes()
 
@@ -39,9 +42,12 @@ class Lottery:
         _dump(self._raw_data, 'xsmb')
         _dump(self._2_digits_data, 'xsmb-2-digits')
         _dump(self._sparse_data, 'xsmb-sparse')
+        print('Done dumping data')
 
     def fetch(self, selected_date: date) -> None:
         url = f'https://xoso.com.vn/xsmb-{selected_date:%d-%m-%Y}.html'
+        print(f'Fetching from: {url}')
+
         resp = self._http.get(url)
         if resp.status_code != 200:
             return
@@ -104,6 +110,7 @@ class Lottery:
         self._begin_date = begin_date.to_pydatetime().date()
         last_date = self._raw_data['date'].max()
         self._last_date = last_date.to_pydatetime().date()
+        print(f'Done generating dataframes from {begin_date} to {last_date}')
 
     def get_raw_data(self) -> pd.DataFrame:
         return self._raw_data
