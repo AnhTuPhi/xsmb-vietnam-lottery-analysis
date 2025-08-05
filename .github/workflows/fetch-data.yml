@@ -9,6 +9,7 @@ on:
 jobs:
   fetch-data:
     runs-on: ubuntu-24.04
+    environment: secrets
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4
