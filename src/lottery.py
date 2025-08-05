@@ -1,6 +1,6 @@
 from copy import copy
 from datetime import date
-
+from loguru import logger
 import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -42,11 +42,11 @@ class Lottery:
         _dump(self._raw_data, 'xsmb')
         _dump(self._2_digits_data, 'xsmb-2-digits')
         _dump(self._sparse_data, 'xsmb-sparse')
-        print('Done dumping data')
+        logger.info("Done dumping data")
 
     def fetch(self, selected_date: date) -> None:
         url = f'https://xoso.com.vn/xsmb-{selected_date:%d-%m-%Y}.html'
-        print(f'Fetching from: {url}')
+        logger.info("Fetching from: {}", url)
 
         resp = self._http.get(url)
         if resp.status_code != 200:
@@ -110,7 +110,7 @@ class Lottery:
         self._begin_date = begin_date.to_pydatetime().date()
         last_date = self._raw_data['date'].max()
         self._last_date = last_date.to_pydatetime().date()
-        print(f'Done generating dataframes from {begin_date} to {last_date}')
+        logger.info("Done generating dataframes from {} to {}", begin_date, last_date)
 
     def get_raw_data(self) -> pd.DataFrame:
         return self._raw_data

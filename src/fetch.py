@@ -1,7 +1,7 @@
 
 from datetime import datetime, time, timedelta
 from zoneinfo import ZoneInfo
-
+from loguru import logger
 from lottery import Lottery
 
 if __name__ == '__main__':
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     delta = (last_date - begin_date).days + 1
     for i in range(1, delta):
         selected_date = begin_date + timedelta(days=i)
-        print(f'Fetching: {selected_date}')
+        logger.info("Fetching: {}", selected_date)
         lottery.fetch(selected_date)
 
     lottery.generate_dataframes()
