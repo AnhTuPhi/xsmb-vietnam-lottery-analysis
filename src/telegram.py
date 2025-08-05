@@ -39,7 +39,7 @@ class Telegram:
             text = re.sub(self.escape_pattern, r'\\\1', text)
         path = f'/bot{self._settings.bot_token}/sendMessage'
         payload = {
-            'chat_id': self._settings.chat_id,
+            'chat_id': self._settings.group_chat_id,
             'text': text,
             'parse_mode': parse_mode,
             'disable_web_page_preview': not preview,
