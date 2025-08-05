@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class TelegramSettings(BaseSettings):
     bot_token: str
-    chat_id: strg
+    chat_id: str
 
     model_config = SettingsConfigDict(
         extra = 'ignore',
