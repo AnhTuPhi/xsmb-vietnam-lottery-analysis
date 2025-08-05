@@ -1,3 +1,4 @@
+import logging
 import re
 from typing import Any, Literal, Self
 from httpx import Client
@@ -43,6 +44,7 @@ class Telegram:
             'parse_mode': parse_mode,
             'disable_web_page_preview': not preview,
         }
+        logging.info("payload: {}", payload)
         resp = self._client.post(path, data=payload)
         if not resp.is_success:
             resp.raise_for_status()
