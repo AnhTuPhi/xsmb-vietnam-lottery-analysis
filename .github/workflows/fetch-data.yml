@@ -30,6 +30,9 @@ jobs:
       - name: analyze data
         run: python src/analyze.py
 
+      - name: notify telegram
+        run: python src/notification.py
+
       - name: get current date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
