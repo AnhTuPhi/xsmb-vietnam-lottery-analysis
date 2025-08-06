@@ -25,11 +25,11 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: fetch data
-        run: python src/fetch.py
-
-      - name: analyze data
-        run: python src/analyze.py
+#      - name: fetch data
+#        run: python src/fetch.py
+#
+#      - name: analyze data
+#        run: python src/analyze.py
 
       - name: notify telegram
         env:

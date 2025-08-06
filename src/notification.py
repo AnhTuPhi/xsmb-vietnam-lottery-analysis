@@ -20,7 +20,7 @@ def send_all_images_as_album_with_caption(bot, folder_path="images", text=""):
         else:
             captions.append(None)  # hide caption for other items
 
-    return bot.send_media_group(photos, captions=captions, parse_mode="HTML")
+    return bot.send_group_media(photos, captions=captions, parse_mode="HTML")
 
 if __name__ == '__main__':
     logger.info('Start notifying')
