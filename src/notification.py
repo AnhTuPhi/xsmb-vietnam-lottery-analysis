@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     with Telegram() as tele:
 
-        captions = None
+        captions = ["test", "test", "test"]
         photos = [open('images/delta.jpg', 'rb').read(), open('images/distribution.jpg', 'rb').read(), open('images/heatmap.jpg', 'rb').read(),]
         tele.send_group_media(photos, captions, parse_mode="HTML")
         tele.send_message('Báo cáo tổng hợp', parse_mode=None)
