@@ -32,4 +32,4 @@ if __name__ == '__main__':
         now = datetime.now(tz)
         current_date = now.date()
         text = f"✅ Báo cáo phân tích tổng hợp kết quả xổ số miền bắc {current_date.day}-{current_date.month}-{current_date.year} 🔥✨"
-        tele.send_message('Báo cáo tổng hợp', parse_mode=None)
+        tele.send_message(text, parse_mode=None)
