@@ -1,8 +1,9 @@
-import logging
+from loguru import logger
 import re
 from typing import Any, Literal, Self
 from httpx import Client
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import json
 
 class TelegramSettings(BaseSettings):
     bot_token: str
@@ -44,7 +45,7 @@ class Telegram:
             'parse_mode': parse_mode,
             'disable_web_page_preview': not preview,
         }
-        logging.info("payload: {}", payload)
+        logger.info("payload: {}", payload)
         resp = self._client.post(path, data=payload)
         if not resp.is_success:
             resp.raise_for_status()
@@ -66,6 +67,42 @@ class Telegram:
             'parse_mode': parse_mode,
         }
         files = {'photo': photo}
+        resp = self._client.post(path, data=payload, files=files)
+        if not resp.is_success:
+            resp.raise_for_status()
+        return resp.json()
+
+    def send_group_media(
+        self,
+        photos: list[bytes],
+        captions: list[str] | None = None,
+        *,
+        parse_mode: Literal['HTML', 'MarkdownV2'] | None = None,
+    ) -> Any:
+        logger.info("Send group media")
+        if captions and parse_mode == 'MarkdownV2':
+            captions = [re.sub(self.escape_pattern, r'\\\1', c) for c in captions]
+
+        path = f'/bot{self._settings.bot_token}/sendMediaGroup'
+
+        # Build the attach payloads: photo1 -> 'attach://photo0', etc.
+        media = []
+        files = {}
+        for idx, photo_bytes in enumerate(photos):
+            file_name = f'photo{idx}.jpg'  # telegram just needs a filename extension
+            media.append({
+                'type': 'photo',
+                'media': f'attach://{file_name}',
+                'caption': captions[idx] if captions and idx < len(captions) else None,
+                'parse_mode': parse_mode,
+            })
+            files[file_name] = photo_bytes
+
+        payload = {
+            'chat_id': self._settings.chat_id,
+            'media': json.dumps(media),
+        }
+
         resp = self._client.post(path, data=payload, files=files)
         if not resp.is_success:
             resp.raise_for_status()

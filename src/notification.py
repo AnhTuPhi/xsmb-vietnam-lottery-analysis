@@ -5,4 +5,8 @@ if __name__ == '__main__':
     logger.info('Start notifying')
 
     with Telegram() as tele:
-        tele.send_message('send sample message', parse_mode=None)
+
+        captions = ["Test", "Caption", "Image"]
+        photos = [open('images/delta.jpg', 'rb').read(), open('images/distribution.jpg', 'rb').read(), open('images/heatmap.jpg', 'rb').read(),]
+        tele.send_message('Báo cáo tổng hợp', parse_mode=None)
+        tele.send_group_media(photos, captions, parse_mode="HTML")
