@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  fetch-data:
+  send-notification:
     runs-on: ubuntu-24.04
     environment: secrets
     steps:
@@ -25,7 +25,7 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: notify telegram
+      - name: notify telegram private group
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

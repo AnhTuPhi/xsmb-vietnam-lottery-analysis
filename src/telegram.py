@@ -23,7 +23,7 @@ class Telegram:
         self._settings = TelegramSettings()
 
     def __enter__(self) -> Self:
-        self._client = Client(base_url='https://api.telegram.org', http2=True)
+        self._client = Client(base_url='https://api.telegram.org', http2=True, timeout=30)
         return self
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
@@ -36,6 +36,7 @@ class Telegram:
         parse_mode: Literal['HTML', 'MarkdownV2'] | None = None,
         preview: bool = False,
     ) -> Any:
+        logger.info("Prepare to send message")
         if parse_mode == 'MarkdownV2':
             text = re.sub(self.escape_pattern, r'\\\1', text)
         path = f'/bot{self._settings.bot_token}/sendMessage'
@@ -45,8 +46,10 @@ class Telegram:
             'parse_mode': parse_mode,
             'disable_web_page_preview': not preview,
         }
-        logger.info("payload: {}", payload)
+        # logger.info("payload: {}", payload)
         resp = self._client.post(path, data=payload)
+        logger.info("Already send message")
+
         if not resp.is_success:
             resp.raise_for_status()
         return resp.json()
@@ -79,7 +82,7 @@ class Telegram:
         *,
         parse_mode: Literal['HTML', 'MarkdownV2'] | None = None,
     ) -> Any:
-        logger.info("Send group media")
+        logger.info("Prepare to send group media")
         if captions and parse_mode == 'MarkdownV2':
             captions = [re.sub(self.escape_pattern, r'\\\1', c) for c in captions]
 
@@ -104,6 +107,7 @@ class Telegram:
         }
 
         resp = self._client.post(path, data=payload, files=files)
+        logger.info("Already sent group media")
         if not resp.is_success:
             resp.raise_for_status()
         return resp.json()
