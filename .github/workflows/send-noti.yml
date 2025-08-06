@@ -1,10 +1,10 @@
-name: Fetching Data
+name: Send Notification
 
 on:
-  push:
-    branches: [ "master" ]
-  schedule:
-    - cron: 35 11 * * * # 6:35 PM in Vietnam
+  workflow_run:
+    workflows: ["Fetching And Analyze Data"]       # <-- must match `name:` in fetch-data.yml
+    types:
+      - completed
 
 jobs:
   fetch-data:
@@ -25,25 +25,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-#      - name: fetch data
-#        run: python src/fetch.py
-#
-#      - name: analyze data
-#        run: python src/analyze.py
-
       - name: notify telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python src/notification.py
-
-      - name: get current date
-        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-
-      - name: push changes
-        uses: actions-x/commit@v6
-        with:
-          token: ${{ secrets.MY_GITHUB_TOKEN }}
-          message: Updated ${{ env.date }}
-          email: action@github.com
-          name: GitHub Action

@@ -42,7 +42,7 @@ def last_appearing(data: pd.DataFrame, type: str):
 
     fig, ax = plt.subplots()
     sns.heatmap(heatmap_data, annot=True, fmt='d', cmap='RdYlGn', ax=ax)
-    ax.set_title('Delta')
+    ax.set_title('Amount of day from last appearing \nSố ngày từ lần xuất hiện cuối cùng giải ĐẶC BIỆT')
     fig.savefig('images/special_delta.jpg')
 
     fig, ax = plt.subplots()
@@ -50,7 +50,7 @@ def last_appearing(data: pd.DataFrame, type: str):
     sns.barplot(bar_data, x='value', y='delta', hue='value', palette=palette, ax=ax)
     for bar in ax.containers:
         ax.bar_label(bar, fmt='%d')
-    ax.set_title('Top 10')
+    ax.set_title('Top 10 amount of day from last appearing \nTop 10 số lâu chưa xuất hiện giải ĐẶC BIỆT')
     fig.savefig('images/special_delta_top_10.jpg')
 
 
@@ -83,7 +83,7 @@ def last_appearing_loto(data):
 
     fig, ax = plt.subplots()
     sns.heatmap(heatmap_data, annot=True, fmt='d', cmap='RdYlGn', ax=ax)
-    ax.set_title('Delta')
+    ax.set_title('Amount of day from last appearing \nSố ngày từ lần xuất hiện cuối cùng')
     fig.savefig('images/delta.jpg')
 
     fig, ax = plt.subplots()
@@ -91,7 +91,7 @@ def last_appearing_loto(data):
     sns.barplot(bar_data, x='value', y='delta', hue='value', palette=palette, ax=ax)
     for bar in ax.containers:
         ax.bar_label(bar, fmt='%d')
-    ax.set_title('Top 10')
+    ax.set_title('Top 10 amount of day from last appearing \nTop 10 số lâu chưa xuất hiện')
     fig.savefig('images/delta_top_10.jpg')
 
 if __name__ == '__main__':
@@ -160,7 +160,7 @@ if __name__ == '__main__':
 
     fig, ax = plt.subplots()
     sns.heatmap(heatmap_data, annot=True, fmt='d', cmap='RdYlGn', ax=ax)
-    ax.set_title('Detail')
+    ax.set_title('Phân tích chi tiêt ma trận heatmap')
     fig.savefig('images/heatmap.jpg')
 
     # Top 10 plot
@@ -173,7 +173,7 @@ if __name__ == '__main__':
     sns.barplot(bar_data, x='value', y='freq', hue='value', palette=palette, ax=ax)
     for bar in ax.containers:
         ax.bar_label(bar, fmt='%d')
-    ax.set_title('Top 10')
+    ax.set_title('Phân tích top 10 bộ số hay xuất hiện trong vòng 1 năm')
     fig.savefig('images/top-10.jpg')
 
     # Distribution
@@ -191,7 +191,7 @@ if __name__ == '__main__':
     ax.vlines(mean + std, 0, np.interp(mean + std, xs, ys), color='red', linestyles='dashed')
     ax.vlines(mean - 2 * std, 0, np.interp(mean - 2 * std, xs, ys), color='red', linestyles='dotted')
     ax.vlines(mean + 2 * std, 0, np.interp(mean + 2 * std, xs, ys), color='red', linestyles='dotted')
-    ax.set_title('Distribution')
+    ax.set_title('Phân tích phân bổ trong vòng 1 năm')
     fig.savefig('images/distribution.jpg')
 
     # Last appearing Loto
