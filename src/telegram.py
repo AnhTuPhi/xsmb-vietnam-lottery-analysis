@@ -46,7 +46,7 @@ class Telegram:
             'parse_mode': parse_mode,
             'disable_web_page_preview': not preview,
         }
-        # logger.info("payload: {}", payload)
+
         resp = self._client.post(path, data=payload)
         logger.info("Already send message")
 

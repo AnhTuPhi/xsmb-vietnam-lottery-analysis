@@ -1,5 +1,7 @@
 from loguru import logger
 from telegram import Telegram
+from datetime import datetime, time, timedelta
+from zoneinfo import ZoneInfo
 
 if __name__ == '__main__':
     logger.info('Start notifying')
@@ -25,4 +27,9 @@ if __name__ == '__main__':
             open('images/delta_top_10.jpg', 'rb').read(),
         ]
         tele.send_group_media(photos, captions, parse_mode="HTML")
+
+        tz = ZoneInfo('Asia/Ho_Chi_Minh')
+        now = datetime.now(tz)
+        current_date = now.date()
+        text = f"✅ Báo cáo phân tích tổng hợp kết quả xổ số miền bắc {current_date.day}-{current_date.month}-{current_date.year} 🔥✨"
         tele.send_message('Báo cáo tổng hợp', parse_mode=None)
