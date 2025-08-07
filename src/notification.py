@@ -28,8 +28,6 @@ if __name__ == '__main__':
         ]
         tele.send_group_media(photos, captions, parse_mode="HTML")
 
-        tz = ZoneInfo('Asia/Ho_Chi_Minh')
-        now = datetime.now(tz)
-        current_date = now.date()
-        text = f"✅ Báo cáo phân tích tổng hợp kết quả xổ số miền bắc {current_date.day}-{current_date.month}-{current_date.year} 🔥✨"
-        tele.send_message('Báo cáo tổng hợp', parse_mode=None)
+        with open('SPECIAL_PRIZE_NOTI.md', 'r', encoding='utf-8') as f:
+            text = f.read()
+        tele.send_message(text, parse_mode=None)
