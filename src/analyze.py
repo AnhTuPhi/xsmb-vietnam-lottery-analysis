@@ -144,7 +144,7 @@ if __name__ == '__main__':
     with open('README.md', 'w', encoding='utf-8') as outfile:
         outfile.write(content)
 
-    content = render('SPECIAL_PRIZE_NOTI.j2', loto_result=loto_result)
+    content = render('SPECIAL_PRIZE_NOTI.j2', loto_result=loto_result, **small_results.iloc[-1])
     with open('SPECIAL_PRIZE_NOTI.md', 'w', encoding='utf-8') as outfile:
         outfile.write(content)
 
