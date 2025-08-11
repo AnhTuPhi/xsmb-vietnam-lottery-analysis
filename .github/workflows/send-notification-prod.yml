@@ -8,9 +8,9 @@ on:
 
 jobs:
   send-notification-prod:
-    if: ${{ github.event.workflow_run.head_branch == 'master' && github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04
     environment: prod
+    if: ${{ github.event.workflow_run.head_branch == 'master' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4
@@ -28,6 +28,6 @@ jobs:
 
       - name: notify telegram private group
         env:
-          TELEGRAM_BOT_TOKEN: ${{ prod.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ prod.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python src/notification.py
