@@ -1,0 +1,33 @@
+name: Send Notification PROD
+
+on:
+  workflow_run:
+    workflows: ["Fetching And Analyze Data"]       # <-- must match `name:` in fetch-data.yml
+    types:
+      - completed
+
+jobs:
+  send-notification-prod:
+    if: ${{ github.event.workflow_run.head_branch == 'master' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+    environment: secrets
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: install python packages
+        run: |
+          pip install -r requirements.txt
+
+      - name: notify telegram private group
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python src/notification.py

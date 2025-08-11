@@ -23,7 +23,7 @@ class Telegram:
         self._settings = TelegramSettings()
 
     def __enter__(self) -> Self:
-        self._client = Client(base_url='https://api.telegram.org', http2=True, timeout=30)
+        self._client = Client(base_url='https://api.telegram.org', http2=True, timeout=60)
         return self
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:

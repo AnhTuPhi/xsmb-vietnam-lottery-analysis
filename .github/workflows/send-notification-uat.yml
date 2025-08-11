@@ -1,4 +1,4 @@
-name: Send Notification
+name: Send Notification UAT
 
 on:
   workflow_run:
@@ -7,10 +7,10 @@ on:
       - completed
 
 jobs:
-  send-notification:
+  send-notification-uat:
+    if: ${{ github.event.workflow_run.head_branch == 'dev' && github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04
     environment: secrets
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4

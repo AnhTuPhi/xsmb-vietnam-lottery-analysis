@@ -2,7 +2,7 @@ name: Fetching And Analyze Data
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "dev", "master" ]
   schedule:
     - cron: 35 11 * * * # 6:35 PM in Vietnam
 
