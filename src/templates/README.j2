@@ -1,12 +1,88 @@
 # Vietnam Lottery (XSMB) Analysis
 
-Using GitHub Action to automatically fetch and analyze results of the Vietnam lottery daily.
+## 📋 Table of Contents
 
-This project for education purpose only. You can use any resource in this repository for free without any permission.
+- [📖 Description](#-description)
+- [📦 Boilerplate](#-boilerplate)
+- [🕵️ Features](#-features)
+- [⚙️ How it works?](#-how-it-works)
+- [🚀 Installation & Usage](#-installation--usage)
+- [📖 References](#-references)
+- [📖 Summary](#-summary)
+- [📄 License](#-license)
 
-Sử dụng GitHub Action để tự động hoá thu thập và phân tích kết quả xổ số hàng ngày của Việt Nam.
+## 📖 Description
 
-Dự án này chỉ nhằm mục đích học tập. Bạn có thể sử dụng bất kỳ tài nguyên nào trong kho lưu trữ này một cách miễn phí mà không cần bất kỳ sự cho phép nào.
+This project focuses on analyzing the Northern Vietnam Lottery (Xổ Số Miền Bắc – XSMB) results.
+It collects historical draw data, processes it, and generates statistics, frequency distributions, and visual insights to help understand lottery patterns.
+
+## 📦 Boilerplate
+
+Fork from original
+repo [clean architecture python boilerplate](https://github.com/AnhTuPhi/clean-architecture-python-boilerplate)
+
+## 🕵️ Features
+
+### 🔎 Key Features
+
+📊 Data Collection – Fetches official XSMB results daily.
+
+📈 Statistical Analysis – Computes number frequency, hot/cold numbers, and distribution trends.
+
+📉 Visualization – Charts and graphs showing historical trends and probability insights.
+
+⚡ Automation – GitHub Actions automatically update results and refresh insights.
+
+🔮 Exploratory Prediction – Initial attempts at forecasting possible outcomes based on historical data.
+
+### 🎯 Purpose
+
+The goal of this project is not gambling but rather:
+
+- Learning data analysis and visualization with real-world datasets.
+- Exploring patterns and randomness in lottery systems.
+- Experimenting with prediction models for educational purposes.
+
+## ⚙️ How it works?
+
+### 🤖 Automated Data Collection
+
+This project runs completely automatically using **Github Actions** - no server required - aiming to be serverless!
+
+- ⏰ Schedule: Runs daily via **GitHub Actions workflow**
+- 🔄 Process: Fetches latest results → Processes data → Commits to repository
+- 📊 Analysis: Generates statistics and updates /data and README.md automatically
+
+### 🕵️ Data Crawling Method
+
+The data collection works by:
+
+- 🔍 Network Analysis: Inspecting browser-server communication
+- 🐍 Python Replication: Recreating the data fetch logic in Python
+- 📋 Structured Storage: Saving results in JSONL format for easy analysis
+- 🔄 Continuous Updates: Daily automated runs ensure fresh data
+
+> **Note:** This is purely for educational and research purposes. No gambling advice is provided.
+
+## 🚀 Installation & Usage
+
+Install requirement dependencies
+
+```sh
+pip install -r requirement.txt
+```
+
+Run service
+
+```sh
+python ./xxx.py
+```
+
+## 📖 References
+
+Document references in [this](https://github.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/blob/master/REFERENCES.md)
+
+## 📖 Summary
 
 | Lottery (Xổ số) | Loto (Lô tô) |
 | :------------: | :----------: |
@@ -81,3 +157,14 @@ df.info()
 
   ![Delta top 10](images/delta_top_10.jpg)
 </details>
+
+## 📄 License
+
+This project is licensed under the MIT License - see
+the [LICENSE](https://github.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/blob/master/LICENSE) file for details.
+
+---
+
+<div align="center">
+  <strong>⭐ If you find this project useful, please consider giving it a star!</strong>
+</div>
