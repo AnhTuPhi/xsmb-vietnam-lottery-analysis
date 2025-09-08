@@ -1,15 +1,13 @@
----
-layout: default
----
-
 # ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=xsmb-vietnam-lottery-analysis)
 
 ### Daily result of XSMB Viet Nam lottery
 ___
 
-| Lottery (Xổ số) | Loto (Lô tô) |
-| :------------: | :----------: |
-| <table><tr><td>Date (Ngày)</td><td>08-09-2025</td></tr><tr><td>Special (Giải đặc biệt)</td><td>04493</td></tr><tr><td>First (Giải nhất)</td><td>66113</td></tr><tr><td>Second (Giải nhì)</td><td>57584, 90587</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>36917, 29542, 20268</td></tr><tr><td>75320, 01384, 30265</td></tr><tr><td>Fourth (Giải tư)</td><td>8326, 6739, 9383, 8311</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>4763, 7769, 3868</td></tr><tr><td>3932, 0137, 5071</td></tr><tr><td>Sixth (Giải sáu)</td><td>814, 134, 074</td></tr><tr><td>Seventh (Giải bảy)</td><td>32, 24, 12, 52</td></tr></table> | <table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr><tr><td>0</td><td>-</td></tr><tr><td>1</td><td>1, 2, 3, 4, 7</td></tr><tr><td>2</td><td>0, 4, 6</td></tr><tr><td>3</td><td>2, 2, 4, 7, 9</td></tr><tr><td>4</td><td>2</td></tr><tr><td>5</td><td>2</td></tr><tr><td>6</td><td>3, 5, 8, 8, 9</td></tr><tr><td>7</td><td>1, 4</td></tr><tr><td>8</td><td>3, 4, 4, 7</td></tr><tr><td>9</td><td>3</td></tr></table> |
+## Lottery (Xổ số)
+<table><tr><td>Date (Ngày)</td><td>08-09-2025</td></tr><tr><td>Special (Giải đặc biệt)</td><td>04493</td></tr><tr><td>First (Giải nhất)</td><td>66113</td></tr><tr><td>Second (Giải nhì)</td><td>57584, 90587</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>36917, 29542, 20268</td></tr><tr><td>75320, 01384, 30265</td></tr><tr><td>Fourth (Giải tư)</td><td>8326, 6739, 9383, 8311</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>4763, 7769, 3868</td></tr><tr><td>3932, 0137, 5071</td></tr><tr><td>Sixth (Giải sáu)</td><td>814, 134, 074</td></tr><tr><td>Seventh (Giải bảy)</td><td>32, 24, 12, 52</td></tr></table>
+
+## Loto (Lô tô)
+<table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr><tr><td>0</td><td>-</td></tr><tr><td>1</td><td>1, 2, 3, 4, 7</td></tr><tr><td>2</td><td>0, 4, 6</td></tr><tr><td>3</td><td>2, 2, 4, 7, 9</td></tr><tr><td>4</td><td>2</td></tr><tr><td>5</td><td>2</td></tr><tr><td>6</td><td>3, 5, 8, 8, 9</td></tr><tr><td>7</td><td>1, 4</td></tr><tr><td>8</td><td>3, 4, 4, 7</td></tr><tr><td>9</td><td>3</td></tr></table>
 
 ## Data (Dữ liệu)
 
