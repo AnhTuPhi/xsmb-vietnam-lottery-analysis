@@ -1,9 +1,11 @@
 name: Fetching And Analyze Data
 
 on:
+  # Trigger workflow schedule
   schedule:
     - cron: 35 11 * * * # 6:35 PM in Vietnam
-
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 jobs:
   fetch-data:
     runs-on: ubuntu-24.04

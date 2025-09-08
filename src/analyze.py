@@ -144,6 +144,10 @@ if __name__ == '__main__':
     with open('README.md', 'w', encoding='utf-8') as outfile:
         outfile.write(content)
 
+    content = render('DAILY.j2', loto_result=loto_result, max_count=max_count, min_count=min_count, mean=mean, std=std, **small_results.iloc[-1])
+    with open('DAILY.md', 'w', encoding='utf-8') as outfile:
+        outfile.write(content)
+
     content = render('SPECIAL_PRIZE_NOTI.j2', loto_result=loto_result, **small_results.iloc[-1])
     with open('SPECIAL_PRIZE_NOTI.md', 'w', encoding='utf-8') as outfile:
         outfile.write(content)
