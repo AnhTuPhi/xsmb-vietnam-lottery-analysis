@@ -1,7 +1,5 @@
 from loguru import logger
 from telegram import Telegram
-from datetime import datetime, time, timedelta
-from zoneinfo import ZoneInfo
 
 if __name__ == '__main__':
     logger.info('Start notifying')
@@ -18,13 +16,13 @@ if __name__ == '__main__':
             "Top 10 amount of day from last appearing \nTop 10 số lâu chưa xuất hiện",
         ]
         photos = [
-            open('images/special_delta.jpg', 'rb').read(),
-            open('images/special_delta_top_10.jpg', 'rb').read(),
-            open('images/heatmap.jpg', 'rb').read(),
-            open('images/top-10.jpg', 'rb').read(),
-            open('images/distribution.jpg', 'rb').read(),
-            open('images/delta.jpg', 'rb').read(),
-            open('images/delta_top_10.jpg', 'rb').read(),
+            open('../data/base_analyze/images/special_delta.jpg', 'rb').read(),
+            open('../data/base_analyze/images/special_delta_top_10.jpg', 'rb').read(),
+            open('../data/base_analyze/images/heatmap.jpg', 'rb').read(),
+            open('../data/base_analyze/images/top-10.jpg', 'rb').read(),
+            open('../data/base_analyze/images/distribution.jpg', 'rb').read(),
+            open('../data/base_analyze/images/delta.jpg', 'rb').read(),
+            open('../data/base_analyze/images/delta_top_10.jpg', 'rb').read(),
         ]
         tele.send_group_media(photos, captions, parse_mode="HTML")
 

@@ -6,7 +6,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from cloudscraper import CloudScraper
 
-from model import Result, ResultList
+from src.models.model import Result, ResultList
 
 class Lottery:
 
@@ -26,7 +26,7 @@ class Lottery:
 
     def load(self) -> None:
         # read data stream from file and set to dict key value
-        with open('data/xsmb.json', 'r', encoding='utf-8') as f:
+        with open('../../data/base_analyze/xsmb.json', 'r', encoding='utf-8') as f:
             data = ResultList.model_validate_json(f.read())
         for d in data.root:
             self._data[d.date] = d # dict add key value = key date value is data object
@@ -35,9 +35,9 @@ class Lottery:
 
     def dump(self) -> None:
         def _dump(df: pd.DataFrame, file_name: str) -> None:
-            df.to_csv(f'data/{file_name}.csv', index=False)
-            df.to_json(f'data/{file_name}.json', orient='records', date_format='iso', indent=2, index=False)
-            df.to_parquet(f'data/{file_name}.parquet', index=False)
+            df.to_csv(f'../../data/base_analyze/{file_name}.csv', index=False)
+            df.to_json(f'../../data/base_analyze/{file_name}.json', orient='records', date_format='iso', indent=2, index=False)
+            df.to_parquet(f'../../data/base_analyze/{file_name}.parquet', index=False)
 
         _dump(self._raw_data, 'xsmb')
         _dump(self._2_digits_data, 'xsmb-2-digits')

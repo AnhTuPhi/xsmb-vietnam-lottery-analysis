@@ -121,11 +121,11 @@ df.info()
   <summary><h2>Analysis of special prices (Phân tích kết quả xổ số)</h2></summary>
   <h3>Amount of day from last appearing (Số ngày từ lần xuất hiện cuối cùng)</h3>
 
-  ![Delta](images/special_delta.jpg)
+  ![Delta](data/base_analyze/images/special_delta.jpg)
 
   <h3>Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)</h3>
 
-  ![Delta top 10](images/special_delta_top_10.jpg)
+  ![Delta top 10](data/base_analyze/images/special_delta_top_10.jpg)
 </details>
 
 <details>
@@ -137,25 +137,25 @@ df.info()
 
   <h3>Detail (Chi tiết)</h3>
 
-  ![Detail](images/heatmap.jpg)
+  ![Detail](data/base_analyze/images/heatmap.jpg)
 
   <h3>Top 10</h3>
 
-  ![Top 10](images/top-10.jpg)
+  ![Top 10](data/base_analyze/images/top-10.jpg)
 
   <h3>Distribution (Phân bổ)</h3>
 
-  ![Distribution](images/distribution.jpg)
+  ![Distribution](data/base_analyze/images/distribution.jpg)
 </details>
 
 <details>
   <summary><h3>Amount of day from last appearing (Số ngày từ lần xuất hiện cuối cùng)</h2></summary>
 
-  ![Delta](images/delta.jpg)
+  ![Delta](data/base_analyze/images/delta.jpg)
 
   <h3>Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)</h3>
 
-  ![Delta top 10](images/delta_top_10.jpg)
+  ![Delta top 10](data/base_analyze/images/delta_top_10.jpg)
 </details>
 
 ## 📄 License
