@@ -48,5 +48,5 @@ Mean: 97.47. Standard deviation: 9.18.
 ---
 
 <div align="center">
-  <strong>⭐ If you find this [project](https://github.com/AnhTuPhi/xsmb-vietnam-lottery-analysis) useful, please consider giving it a star!</strong>
+  <strong>⭐ If you find this <a href="https://github.com/AnhTuPhi/xsmb-vietnam-lottery-analysis">project</a> useful, please consider giving it a star!</strong>
 </div>
