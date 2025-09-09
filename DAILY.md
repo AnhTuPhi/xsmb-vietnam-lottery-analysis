@@ -20,10 +20,10 @@ ___
 ## Analysis of special prices (Phân tích kết quả xổ số)
 
 ### Amount of day from last appearing (Số ngày từ lần xuất hiện cuối cùng)
-[Delta](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/special_delta.jpg)
+[Delta](images/special_delta.jpg)
 
 ### Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)
-[Delta top 10](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/special_delta_top_10.jpg)
+[Delta top 10](images/special_delta_top_10.jpg)
 
 ## Analysis of one-year Loto results (Phân tích kết quả lô tô trong 1 năm)
 
@@ -32,16 +32,16 @@ Max: 125. Min: 77.
 Mean: 97.47. Standard deviation: 9.18.
 
 ### Detail (Chi tiết)
-[Detail](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/heatmap.jpg)
+[Detail](images/heatmap.jpg)
 
 ### Top 10
-[Top 10](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/top-10.jpg)
+[Top 10](images/top-10.jpg)
 
 ### Distribution (Phân bổ)
-[Distribution](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/distribution.jpg)
+[Distribution](images/distribution.jpg)
 
 ### Amount of day from last appearing (Số ngày từ lần xuất hiện cuối cùng)
-[Delta](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/delta.jpg)
+[Delta](images/delta.jpg)
 
 ### Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)
-[Delta top 10](https://raw.githubusercontent.com/AnhTuPhi/xsmb-vietnam-lottery-analysis/refs/heads/master/images/delta_top_10.jpg)
+[Delta top 10](images/delta_top_10.jpg)
