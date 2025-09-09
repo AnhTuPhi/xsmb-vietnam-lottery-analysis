@@ -1,6 +1,6 @@
 # ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=xsmb-vietnam-lottery-analysis)
 
-___g
+___
 
 ## Lottery (Xổ số)
 <table><tr><td>Date (Ngày)</td><td>08-09-2025</td></tr><tr><td>Special (Giải đặc biệt)</td><td>04493</td></tr><tr><td>First (Giải nhất)</td><td>66113</td></tr><tr><td>Second (Giải nhì)</td><td>57584, 90587</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>36917, 29542, 20268</td></tr><tr><td>75320, 01384, 30265</td></tr><tr><td>Fourth (Giải tư)</td><td>8326, 6739, 9383, 8311</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>4763, 7769, 3868</td></tr><tr><td>3932, 0137, 5071</td></tr><tr><td>Sixth (Giải sáu)</td><td>814, 134, 074</td></tr><tr><td>Seventh (Giải bảy)</td><td>32, 24, 12, 52</td></tr></table>
@@ -44,3 +44,9 @@ Mean: 97.47. Standard deviation: 9.18.
 
 ### Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)
 ![Delta top 10](images/delta_top_10.jpg)
+
+---
+
+<div align="center">
+  <strong>⭐ If you find this [project](https://github.com/AnhTuPhi/xsmb-vietnam-lottery-analysis) useful, please consider giving it a star!</strong>
+</div>
