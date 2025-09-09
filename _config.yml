@@ -1,6 +1,8 @@
 title: ""
 description: ""
 theme: minima  # (optional, gives a basic layout)
+markdown: kramdown
+show_footer: false
 
 # Ensure Jekyll copies static assets
 include:
