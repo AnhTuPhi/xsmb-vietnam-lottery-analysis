@@ -25,15 +25,15 @@ repo [clean architecture python boilerplate](https://github.com/AnhTuPhi/clean-a
 
 ### 🔎 Key Features
 
-📊 Data Collection – Fetches official XSMB results daily.
+📊 Data Collection – Fetches official XSMB results daily. (Free version - Public Repo)
 
-📈 Statistical Analysis – Computes number frequency, hot/cold numbers, and distribution trends.
+⚡ Automation – GitHub Actions automatically update results and refresh insights. (Free version - Public Repo)
 
-📉 Visualization – Charts and graphs showing historical trends and probability insights.
+📈 Statistical Analysis – Computes number frequency, hot/cold numbers, and distribution trends. (Available in charge fee version - Private Repo)
 
-⚡ Automation – GitHub Actions automatically update results and refresh insights.
+📉 Visualization – Charts and graphs showing historical trends and probability insights. (Available in charge fee version - Private Repo)
 
-🔮 Exploratory Prediction – Initial attempts at forecasting possible outcomes based on historical data.
+🔮 Exploratory Prediction – Initial attempts at forecasting possible outcomes based on historical data. (Available in charge fee version - Private Repo)
 
 ### 🎯 Purpose
 
