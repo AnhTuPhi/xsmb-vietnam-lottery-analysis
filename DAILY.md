@@ -1,7 +1,6 @@
 # ![Typing SVG](https://readme-typing-svg.demolab.com/?lines=xsmb-vietnam-lottery-analysis)
 
-### Daily result of XSMB Viet Nam lottery
-___
+___g
 
 ## Lottery (Xổ số)
 <table><tr><td>Date (Ngày)</td><td>08-09-2025</td></tr><tr><td>Special (Giải đặc biệt)</td><td>04493</td></tr><tr><td>First (Giải nhất)</td><td>66113</td></tr><tr><td>Second (Giải nhì)</td><td>57584, 90587</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>36917, 29542, 20268</td></tr><tr><td>75320, 01384, 30265</td></tr><tr><td>Fourth (Giải tư)</td><td>8326, 6739, 9383, 8311</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>4763, 7769, 3868</td></tr><tr><td>3932, 0137, 5071</td></tr><tr><td>Sixth (Giải sáu)</td><td>814, 134, 074</td></tr><tr><td>Seventh (Giải bảy)</td><td>32, 24, 12, 52</td></tr></table>
@@ -20,10 +19,10 @@ ___
 ## Analysis of special prices (Phân tích kết quả xổ số)
 
 ### Amount of day from last appearing (Số ngày từ lần xuất hiện cuối cùng)
-[Delta](images/special_delta.jpg)
+![Delta](images/special_delta.jpg)
 
 ### Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)
-[Delta top 10](images/special_delta_top_10.jpg)
+![Delta top 10](images/special_delta_top_10.jpg)
 
 ## Analysis of one-year Loto results (Phân tích kết quả lô tô trong 1 năm)
 
@@ -32,16 +31,16 @@ Max: 125. Min: 77.
 Mean: 97.47. Standard deviation: 9.18.
 
 ### Detail (Chi tiết)
-[Detail](images/heatmap.jpg)
+![Detail](images/heatmap.jpg)
 
 ### Top 10
-[Top 10](images/top-10.jpg)
+![Top 10](images/top-10.jpg)
 
 ### Distribution (Phân bổ)
-[Distribution](images/distribution.jpg)
+![Distribution](images/distribution.jpg)
 
 ### Amount of day from last appearing (Số ngày từ lần xuất hiện cuối cùng)
-[Delta](images/delta.jpg)
+![Delta](images/delta.jpg)
 
 ### Top 10 amount of day from last appearing (Top 10 số lâu chưa xuất hiện)
-[Delta top 10](images/delta_top_10.jpg)
+![Delta top 10](images/delta_top_10.jpg)
