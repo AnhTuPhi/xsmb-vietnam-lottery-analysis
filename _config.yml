@@ -1,6 +1,6 @@
 title:
 description: Daily results of XSMB lottery
-theme: default  # (optional, gives a basic layout)
+theme: minima  # (optional, gives a basic layout)
 
 # Ensure Jekyll copies static assets
 include:
