@@ -86,7 +86,7 @@ Document references in [this](https://github.com/AnhTuPhi/xsmb-vietnam-lottery-a
 
 | Lottery (Xổ số) | Loto (Lô tô) |
 | :------------: | :----------: |
-| <table><tr><td>Date (Ngày)</td><td>09-11-2025</td></tr><tr><td>Special (Giải đặc biệt)</td><td>41879</td></tr><tr><td>First (Giải nhất)</td><td>25411</td></tr><tr><td>Second (Giải nhì)</td><td>81936, 90533</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>98871, 72777, 29402</td></tr><tr><td>30621, 83114, 09911</td></tr><tr><td>Fourth (Giải tư)</td><td>9597, 7447, 9892, 6328</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>3186, 4695, 9088</td></tr><tr><td>5577, 0884, 3169</td></tr><tr><td>Sixth (Giải sáu)</td><td>131, 718, 588</td></tr><tr><td>Seventh (Giải bảy)</td><td>62, 83, 90, 70</td></tr></table> | <table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr><tr><td>0</td><td>2</td></tr><tr><td>1</td><td>1, 1, 4, 8</td></tr><tr><td>2</td><td>1, 8</td></tr><tr><td>3</td><td>1, 3, 6</td></tr><tr><td>4</td><td>7</td></tr><tr><td>5</td><td>-</td></tr><tr><td>6</td><td>2, 9</td></tr><tr><td>7</td><td>0, 1, 7, 7, 9</td></tr><tr><td>8</td><td>3, 4, 6, 8, 8</td></tr><tr><td>9</td><td>0, 2, 5, 7</td></tr></table> |
+| <table><tr><td>Date (Ngày)</td><td>10-11-2025</td></tr><tr><td>Special (Giải đặc biệt)</td><td>74592</td></tr><tr><td>First (Giải nhất)</td><td>10095</td></tr><tr><td>Second (Giải nhì)</td><td>86405, 73574</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>76035, 59419, 45545</td></tr><tr><td>30685, 99727, 81014</td></tr><tr><td>Fourth (Giải tư)</td><td>2371, 8344, 5811, 2527</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>5445, 6975, 2640</td></tr><tr><td>9287, 2688, 3842</td></tr><tr><td>Sixth (Giải sáu)</td><td>588, 265, 689</td></tr><tr><td>Seventh (Giải bảy)</td><td>53, 41, 97, 10</td></tr></table> | <table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr><tr><td>0</td><td>5</td></tr><tr><td>1</td><td>0, 1, 4, 9</td></tr><tr><td>2</td><td>7, 7</td></tr><tr><td>3</td><td>5</td></tr><tr><td>4</td><td>0, 1, 2, 4, 5, 5</td></tr><tr><td>5</td><td>3</td></tr><tr><td>6</td><td>5</td></tr><tr><td>7</td><td>1, 4, 5</td></tr><tr><td>8</td><td>5, 7, 8, 8, 9</td></tr><tr><td>9</td><td>2, 5, 7</td></tr></table> |
 
 ## Data (Dữ liệu)
 
@@ -123,9 +123,9 @@ df.info()
 
 ![Delta top 10](images/special_delta_top_10.jpg)
 
-Max: 121. Min: 79.
+Max: 122. Min: 80.
 
-Mean: 97.47. Standard deviation: 9.07.
+Mean: 97.47. Standard deviation: 9.09.
 
 ![Detail](images/heatmap.jpg)
 
