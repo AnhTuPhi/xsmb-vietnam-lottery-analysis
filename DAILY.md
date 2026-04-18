@@ -3,10 +3,10 @@
 ___
 
 ## Lottery (Xổ số)
-<table><tr><td>Date (Ngày)</td><td>17-04-2026</td></tr><tr><td>Special (Giải đặc biệt)</td><td>38455</td></tr><tr><td>First (Giải nhất)</td><td>64514</td></tr><tr><td>Second (Giải nhì)</td><td>96963, 91177</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>17860, 64337, 85166</td></tr><tr><td>09392, 97001, 96481</td></tr><tr><td>Fourth (Giải tư)</td><td>3605, 0371, 2917, 2592</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>0711, 0388, 4960</td></tr><tr><td>5179, 4972, 1376</td></tr><tr><td>Sixth (Giải sáu)</td><td>706, 991, 651</td></tr><tr><td>Seventh (Giải bảy)</td><td>30, 27, 13, 77</td></tr></table>
+<table><tr><td>Date (Ngày)</td><td>18-04-2026</td></tr><tr><td>Special (Giải đặc biệt)</td><td>17243</td></tr><tr><td>First (Giải nhất)</td><td>04013</td></tr><tr><td>Second (Giải nhì)</td><td>57720, 45649</td></tr><tr><td rowspan="2">Third (Giải ba)</td><td>06869, 33442, 67961</td></tr><tr><td>83654, 07214, 25760</td></tr><tr><td>Fourth (Giải tư)</td><td>3092, 5365, 3768, 2615</td></tr><tr><td rowspan="2">Fifth (Giải năm)</td><td>6173, 7658, 4136</td></tr><tr><td>5645, 2979, 9831</td></tr><tr><td>Sixth (Giải sáu)</td><td>872, 043, 819</td></tr><tr><td>Seventh (Giải bảy)</td><td>95, 74, 59, 53</td></tr></table>
 
 ## Loto (Lô tô)
-<table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr><tr><td>0</td><td>1, 5, 6</td></tr><tr><td>1</td><td>1, 3, 4, 7</td></tr><tr><td>2</td><td>7</td></tr><tr><td>3</td><td>0, 7</td></tr><tr><td>4</td><td>-</td></tr><tr><td>5</td><td>1, 5</td></tr><tr><td>6</td><td>0, 0, 3, 6</td></tr><tr><td>7</td><td>1, 2, 6, 7, 7, 9</td></tr><tr><td>8</td><td>1, 8</td></tr><tr><td>9</td><td>1, 2, 2</td></tr></table>
+<table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr><tr><td>0</td><td>-</td></tr><tr><td>1</td><td>3, 4, 5, 9</td></tr><tr><td>2</td><td>0</td></tr><tr><td>3</td><td>1, 6</td></tr><tr><td>4</td><td>2, 3, 3, 5, 9</td></tr><tr><td>5</td><td>3, 4, 8, 9</td></tr><tr><td>6</td><td>0, 1, 5, 8, 9</td></tr><tr><td>7</td><td>2, 3, 4, 9</td></tr><tr><td>8</td><td>-</td></tr><tr><td>9</td><td>2, 5</td></tr></table>
 
 ## Data (Dữ liệu)
 
@@ -24,9 +24,9 @@ ___
 ![Delta top 10](images/special_delta_top_10.jpg)
 
 
-Max: 119. Min: 74.
+Max: 118. Min: 74.
 
-Mean: 97.47. Standard deviation: 9.52.
+Mean: 97.47. Standard deviation: 9.62.
 
 ![Detail](images/heatmap.jpg)
 
