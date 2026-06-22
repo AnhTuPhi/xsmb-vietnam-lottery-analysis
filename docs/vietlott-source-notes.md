@@ -40,10 +40,12 @@ call (`ClientDrawResult(DrawId)`) that re-renders the same container.
 <div class="chitietketqua lotto535">  <!-- 535 -->
 ```
 
+**Important:** The `mega645` and `lotto535` modifier classes are vietlott.vn's CSS naming conventions, not product-discriminators. The Parser should always select on the generic `div.chitietketqua` and rely on the `product` argument passed to `parse()` to determine which product the draw rows belong to. Do not filter or discriminate based on the modifier class.
+
 ### 2b. Draw title — draw number and date
 
 ```
-div.chitietketqua_title > h5
+div.chitietketqua_title h5
 ```
 
 The `h5` element contains the text "Kỳ quay thưởng", then a `<b>` with the
