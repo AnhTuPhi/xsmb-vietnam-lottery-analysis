@@ -1,5 +1,5 @@
 import re
-from datetime import datetime
+from datetime import date, datetime
 
 from bs4 import BeautifulSoup, Tag
 
@@ -25,8 +25,7 @@ class Parser:
             try:
                 results.append(self._parse_row(row, product))
             except (ValueError, AttributeError) as exc:
-                # Skip this row but record the warning indirectly by re-raising
-                # only if we got zero usable results overall.
+                # Re-raise immediately; each fixture page contains a single draw row.
                 snippet = str(row)[:200]
                 raise ParseError(f"Failed to parse row: {exc}; snippet: {snippet!r}") from exc
         return results
@@ -95,7 +94,7 @@ class Parser:
         return int(m.group(1))
 
     @staticmethod
-    def _parse_date(text: str):
+    def _parse_date(text: str) -> date:
         m = _DATE_RE.search(text)
         if not m:
             raise ValueError(f"date not found in {text!r}")

@@ -30,6 +30,7 @@ def test_parse_645_returns_nonempty_list_of_draw_results():
         r.validate_against_product(MEGA_645)
         assert r.product_code == "6/45"
         assert r.special_ball is None
+    assert results[0].draw_id == 1526
 
 
 def test_parse_535_returns_nonempty_list_of_draw_results():
@@ -39,6 +40,7 @@ def test_parse_535_returns_nonempty_list_of_draw_results():
     for r in results:
         r.validate_against_product(LOTTO_535)
         assert r.product_code == "5/35"
+    assert results[0].draw_id == 718
 
 
 def test_parse_655_first_row_matches_top_of_fixture():
