@@ -22,6 +22,7 @@ def _sample() -> VietlottProduct:
         special_ball_max=None,
         draw_days=(0,),
         draw_time_vn=(18, 0),
+        result_url="https://vietlott.vn/sample",
     )
 
 
@@ -73,3 +74,21 @@ def test_draw_time_components_in_valid_range():
         hh, mm = product.draw_time_vn
         assert 0 <= hh < 24
         assert 0 <= mm < 60
+
+
+def test_each_product_has_a_result_url():
+    for product in ALL_PRODUCTS:
+        assert product.result_url.startswith("https://")
+        assert "vietlott.vn" in product.result_url
+
+
+def test_sample_constructor_includes_result_url():
+    # Local helper from earlier needs updating
+    p = VietlottProduct(
+        slug="x", name="X", code="1/1",
+        ball_count=1, ball_min=1, ball_max=1,
+        has_special_ball=False, special_ball_max=None,
+        draw_days=(0,), draw_time_vn=(18, 0),
+        result_url="https://vietlott.vn/sample",
+    )
+    assert p.result_url == "https://vietlott.vn/sample"

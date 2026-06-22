@@ -13,6 +13,7 @@ class VietlottProduct:
     special_ball_max: int | None
     draw_days: tuple[int, ...]
     draw_time_vn: tuple[int, int]
+    result_url: str
 
 
 POWER_655 = VietlottProduct(
@@ -26,6 +27,7 @@ POWER_655 = VietlottProduct(
     special_ball_max=55,
     draw_days=(1, 3, 5),  # Tue, Thu, Sat
     draw_time_vn=(18, 30),
+    result_url="https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/655.html",
 )
 
 MEGA_645 = VietlottProduct(
@@ -39,6 +41,7 @@ MEGA_645 = VietlottProduct(
     special_ball_max=None,
     draw_days=(2, 4, 6),  # Wed, Fri, Sun
     draw_time_vn=(18, 30),
+    result_url="https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/645.html",
 )
 
 LOTTO_535 = VietlottProduct(
@@ -50,8 +53,9 @@ LOTTO_535 = VietlottProduct(
     ball_max=35,
     has_special_ball=True,
     special_ball_max=35,
-    draw_days=(0, 1, 2, 3, 4, 5, 6),  # to be verified in Task 3
+    draw_days=(0, 1, 2, 3, 4, 5, 6),  # every day, confirmed in Task 3 (2 draws/day)
     draw_time_vn=(18, 0),
+    result_url="https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/535.html",
 )
 
 ALL_PRODUCTS: tuple[VietlottProduct, ...] = (POWER_655, MEGA_645, LOTTO_535)
