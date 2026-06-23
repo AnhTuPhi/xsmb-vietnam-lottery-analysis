@@ -55,6 +55,10 @@ class Store:
     def __init__(self, data_dir: Path = Path("data")) -> None:
         self._data_dir = data_dir
 
+    @property
+    def data_dir(self) -> Path:
+        return self._data_dir
+
     def _path(self, product: VietlottProduct) -> Path:
         return self._data_dir / f"vietlott-{product.slug}.json"
 
