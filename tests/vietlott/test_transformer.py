@@ -73,14 +73,23 @@ def test_sparse_dataframe_535_has_correct_sp_range():
     assert "sp_36" not in df.columns
 
 
-def test_dump_writes_all_six_files(tmp_data_dir: Path):
+def test_dump_writes_expected_files(tmp_data_dir: Path):
     t = Transformer()
     t.dump([_655(1, [1, 2, 3, 4, 5, 6], special=7)], POWER_655, out_dir=tmp_data_dir)
     expected = {
-        "vietlott-655.csv", "vietlott-655.json", "vietlott-655.parquet",
+        "vietlott-655.csv", "vietlott-655.parquet",
         "vietlott-655-sparse.csv", "vietlott-655-sparse.json", "vietlott-655-sparse.parquet",
     }
     assert {p.name for p in tmp_data_dir.iterdir()} >= expected
+
+
+def test_dump_does_not_write_canonical_json(tmp_data_dir: Path):
+    # vietlott-{slug}.json is the Store's canonical file. The Transformer's
+    # raw view is CSV+Parquet only; writing a .json here would clobber the
+    # source of truth and break the next run's Store.load.
+    t = Transformer()
+    t.dump([_655(1, [1, 2, 3, 4, 5, 6], special=7)], POWER_655, out_dir=tmp_data_dir)
+    assert not (tmp_data_dir / "vietlott-655.json").exists()
 
 
 def test_dump_645_does_not_write_sp_columns_into_parquet(tmp_data_dir: Path):

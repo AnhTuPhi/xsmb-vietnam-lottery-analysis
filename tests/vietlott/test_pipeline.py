@@ -68,6 +68,25 @@ def test_pipeline_writes_transformer_outputs(tmp_data_dir):
     assert (tmp_data_dir / "vietlott-655-sparse.csv").exists()
 
 
+def test_pipeline_output_reloads_via_store(tmp_data_dir):
+    # Regression: the Transformer must not clobber the Store's canonical
+    # vietlott-{slug}.json. After a run, a fresh Store.load must succeed and
+    # return the same draws — otherwise the next scheduled run breaks.
+    store = Store(data_dir=tmp_data_dir)
+    pipeline = Pipeline(
+        fetcher=_StubFetcher("<html/>"),
+        parser=_StubParser([_r(1), _r(2)]),
+        store=store,
+        transformer=Transformer(),
+    )
+
+    pipeline.run(POWER_655)
+
+    reloaded = Store(data_dir=tmp_data_dir).load(POWER_655)
+    assert [r.draw_id for r in reloaded] == [1, 2]
+    assert reloaded[0].balls == [1, 2, 3, 4, 5, 6]
+
+
 def test_pipeline_handles_zero_new_results(tmp_data_dir):
     store = Store(data_dir=tmp_data_dir)
     store.save(POWER_655, [_r(1)])

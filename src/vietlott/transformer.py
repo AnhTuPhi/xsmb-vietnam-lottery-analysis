@@ -60,10 +60,18 @@ class Transformer:
         slug = product.slug
         raw = self.to_raw_dataframe(results, product)
         sparse = self.to_sparse_dataframe(results, product)
-        for df, name in [(raw, f"vietlott-{slug}"), (sparse, f"vietlott-{slug}-sparse")]:
-            df.to_csv(out_dir / f"{name}.csv", index=False)
-            df.to_json(
-                out_dir / f"{name}.json",
-                orient="records", date_format="iso", indent=2, index=False,
-            )
-            df.to_parquet(out_dir / f"{name}.parquet", index=False)
+
+        # Raw view: CSV + Parquet only. The canonical `vietlott-{slug}.json`
+        # belongs to the Store (a different, round-trippable schema); the
+        # Transformer must not write it or it would clobber the source of
+        # truth and break the next run's Store.load.
+        raw.to_csv(out_dir / f"vietlott-{slug}.csv", index=False)
+        raw.to_parquet(out_dir / f"vietlott-{slug}.parquet", index=False)
+
+        # Sparse view: CSV + JSON + Parquet.
+        sparse.to_csv(out_dir / f"vietlott-{slug}-sparse.csv", index=False)
+        sparse.to_json(
+            out_dir / f"vietlott-{slug}-sparse.json",
+            orient="records", date_format="iso", indent=2, index=False,
+        )
+        sparse.to_parquet(out_dir / f"vietlott-{slug}-sparse.parquet", index=False)
