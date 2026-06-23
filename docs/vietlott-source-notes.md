@@ -270,3 +270,34 @@ Helper script: `scripts/capture_vietlott_fixtures.py`
 - The `div.chitietketqua` top-level div is the parser's entry point.
   The Parser should `soup.select_one("div.chitietketqua")` and then apply
   the sub-selectors described above.
+
+## Verification log
+
+- **Manual end-to-end run on 2026-06-24** (`run_for_products(ALL_PRODUCTS)`,
+  live fetch from vietlott.vn): all three products fetched cleanly, no
+  Cloudflare block, no warnings.
+  - 655: +1 new (total 89) — new draw `#1362` (2026-06-23)
+  - 645: +1 new (total 88) — new draw `#1526`
+  - 535: +1 new (total 305) — new draw `#720`
+- **Diff against legacy n8n output (draw_id sets):** no missing draws for
+  any product (`missing=[]`). The legacy n8n files contained duplicate
+  rows (655: 90 records / 88 unique ids; 645: 89/87; 535: 305/304); the
+  Store dedup collapses them, which accounts for the unique-count delta.
+- **Canonical round-trip confirmed:** after a run, `Store.load` re-reads
+  `data/vietlott-{slug}.json` and returns the same draws — fixed by the
+  Transformer/Store filename-collision fix (commit `f4f97de`), where the
+  raw view previously overwrote the canonical JSON.
+- **Migration is automatic:** the first CI run (or first manual run on
+  master) detects the legacy schema and rewrites each file in place; the
+  branch intentionally does not commit migrated data while the n8n flow is
+  still active.
+
+### Remaining cutover steps (operator)
+
+- [ ] Merge the PR to `master`, then trigger the workflow once via
+  `workflow_dispatch` to confirm it runs green and commits new-schema data.
+- [ ] Once the GitHub Actions workflow has run cleanly at least once,
+  **disable the n8n Vietlott ingestion** that writes `data/vietlott-*.json`
+  (the n8n XSMB workflow is separate and unaffected). Running both at once
+  would race on the same files.
+- [ ] Record the first green CI run date and the n8n-disabled date here.
