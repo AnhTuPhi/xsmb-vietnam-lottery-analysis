@@ -1,0 +1,44 @@
+name: Vietlott Fetch
+
+on:
+  schedule:
+    # Vietnam is UTC+7. Draws complete by ~18:30 VN = 11:30 UTC.
+    # We schedule for 12:00 UTC = 19:00 VN to be safe.
+    # Power 6/55: Tue / Thu / Sat   (weekdays 2,4,6 in cron — Sunday=0)
+    # Mega 6/45 : Wed / Fri / Sun   (weekdays 3,5,0)
+    # Lotto 5/35: draws daily; products_for_today filters per draw_days.
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-24.04
+    environment: secrets
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: install python packages
+        run: pip install -r requirements.txt
+
+      - name: run vietlott pipeline
+        run: python src/vietlott_fetch.py
+
+      - name: get current date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: push changes
+        uses: actions-x/commit@v6
+        with:
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
+          message: "Vietlott ${{ env.date }}"
+          email: action@github.com
+          name: GitHub Action
+          files: data/vietlott-*.json data/vietlott-*.csv data/vietlott-*.parquet
