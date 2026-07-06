@@ -42,27 +42,32 @@ jobs:
 
       - name: connect warp
         run: |
+          # warp-svc is auto-started by the package; give it a moment.
+          for i in $(seq 1 10); do
+            if systemctl is-active --quiet warp-svc; then echo active; break; fi
+            sleep 1
+          done
           sudo warp-cli --accept-tos registration new
           sudo warp-cli --accept-tos mode warp
-          # WireGuard (UDP 2408) frequently fails to establish on CI runners;
-          # MASQUE runs over HTTP/3 (UDP 443) and connects far more reliably.
-          sudo warp-cli --accept-tos tunnel protocol set MASQUE || true
           sudo warp-cli --accept-tos connect
-          # Wait until WARP reports connected, printing status for diagnosis.
+          # Runners are IPv4-only until WARP brings up its tunnel, so a curl
+          # trace can't confirm readiness — gate on warp-cli's own status.
           connected=false
           for i in $(seq 1 20); do
-            if curl -fs --max-time 5 https://www.cloudflare.com/cdn-cgi/trace/ | grep -q "warp=on"; then
-              echo "WARP is active"; connected=true; break
+            status=$(sudo warp-cli --accept-tos status 2>/dev/null || true)
+            echo "warp status: $status"
+            if echo "$status" | grep -q "Connected"; then
+              connected=true; break
             fi
-            echo "waiting for WARP... ($i)"
-            sudo warp-cli --accept-tos status || true
             sleep 3
           done
-          sudo warp-cli --accept-tos status || true
           if [ "$connected" != true ]; then
             echo "WARP failed to connect"; exit 1
           fi
-          curl -fs --max-time 5 https://www.cloudflare.com/cdn-cgi/trace/ | grep -E "warp=|ip="
+          echo "=== Direct IP (no proxy) ==="
+          curl -s -4 https://www.cloudflare.com/cdn-cgi/trace/ | grep -E "ip=|warp=" || true
+          echo "=== WARP exit IP ==="
+          curl -s https://www.cloudflare.com/cdn-cgi/trace/ | grep -E "ip=|warp=" || true
 
       - name: run vietlott pipeline
         run: python src/vietlott_fetch.py
