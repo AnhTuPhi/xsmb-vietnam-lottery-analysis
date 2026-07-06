@@ -3,9 +3,16 @@ import socket
 from typing import Any
 
 from cloudscraper import CloudScraper
+from loguru import logger
 
 from vietlott.errors import FetchError
 from vietlott.products import VietlottProduct
+
+TRACE_URL = "https://www.cloudflare.com/cdn-cgi/trace"
+# Response headers that reveal why Cloudflare blocked a request.
+_BLOCK_HEADERS = ("CF-Ray", "cf-mitigated", "Server", "CF-Cache-Status", "Content-Type")
+# cdn-cgi/trace fields that reveal the egress IP and its location.
+_TRACE_FIELDS = ("ip=", "loc=", "colo=", "warp=")
 
 # GitHub Actions runners use datacenter IPs that Vietlott's Cloudflare WAF
 # blocks with a 403 regardless of headers. Setting VIETLOTT_PROXY to a VN
@@ -63,5 +70,24 @@ class Fetcher:
     def _get(self, url: str) -> str:
         resp = self._http.get(url)
         if resp.status_code != 200:
+            self._log_block_details(url, resp)
             raise FetchError(f"GET {url} returned status {resp.status_code}")
         return resp.text
+
+    def _log_block_details(self, url: str, resp: Any) -> None:
+        headers = {k: resp.headers.get(k) for k in _BLOCK_HEADERS}
+        logger.warning(
+            "Blocked GET {} status={} headers={}", url, resp.status_code, headers
+        )
+        body = (resp.text or "")[:500].replace("\n", " ")
+        logger.warning("Response body snippet: {}", body)
+        try:
+            trace = self._http.get(TRACE_URL, timeout=10)
+            lines = [
+                line
+                for line in trace.text.splitlines()
+                if line.startswith(_TRACE_FIELDS)
+            ]
+            logger.warning("Egress trace: {}", " ".join(lines))
+        except Exception as exc:  # noqa: BLE001 — diagnostics must never mask FetchError
+            logger.warning("Egress trace failed: {}", exc)
