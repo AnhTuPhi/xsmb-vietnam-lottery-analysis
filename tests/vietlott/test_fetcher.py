@@ -47,3 +47,20 @@ def test_fetcher_default_constructs_a_cloudscraper():
     fetcher = Fetcher()
     # We don't make a real call, just check the attribute is set.
     assert fetcher._http is not None
+
+
+def test_fetcher_applies_proxy_from_env(monkeypatch):
+    monkeypatch.setenv("VIETLOTT_PROXY", "http://user:pass@vn-proxy:8080")
+
+    fetcher = Fetcher()
+
+    assert fetcher._http.proxies["http"] == "http://user:pass@vn-proxy:8080"
+    assert fetcher._http.proxies["https"] == "http://user:pass@vn-proxy:8080"
+
+
+def test_fetcher_no_proxy_when_env_unset(monkeypatch):
+    monkeypatch.delenv("VIETLOTT_PROXY", raising=False)
+
+    fetcher = Fetcher()
+
+    assert "http" not in fetcher._http.proxies

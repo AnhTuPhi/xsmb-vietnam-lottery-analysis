@@ -1,9 +1,15 @@
+import os
 from typing import Any
 
 from cloudscraper import CloudScraper
 
 from vietlott.errors import FetchError
 from vietlott.products import VietlottProduct
+
+# GitHub Actions runners use datacenter IPs that Vietlott's Cloudflare WAF
+# blocks with a 403 regardless of headers. Setting VIETLOTT_PROXY to a VN
+# (or residential) proxy URL routes requests through an allowed IP.
+PROXY_ENV_VAR = "VIETLOTT_PROXY"
 
 # Vietlott sits behind Cloudflare and rejects requests that don't look like a
 # real browser. Sending a full set of browser headers (notably a Vietnamese
@@ -30,6 +36,9 @@ class Fetcher:
         else:
             self._http = CloudScraper()
             self._http.headers.update(BROWSER_HEADERS)
+            proxy = os.environ.get(PROXY_ENV_VAR)
+            if proxy:
+                self._http.proxies.update({"http": proxy, "https": proxy})
 
     def fetch_results_page(self, product: VietlottProduct) -> str:
         return self._get(product.result_url)
