@@ -1,4 +1,5 @@
 import os
+import socket
 from typing import Any
 
 from cloudscraper import CloudScraper
@@ -10,6 +11,17 @@ from vietlott.products import VietlottProduct
 # blocks with a 403 regardless of headers. Setting VIETLOTT_PROXY to a VN
 # (or residential) proxy URL routes requests through an allowed IP.
 PROXY_ENV_VAR = "VIETLOTT_PROXY"
+
+# Cloudflare WARP on CI runners tunnels IPv6 only; IPv4 still egresses via the
+# blocked datacenter IP. Setting VIETLOTT_FORCE_IPV6 makes the HTTP client
+# resolve/connect over IPv6 so traffic goes through the WARP tunnel.
+FORCE_IPV6_ENV_VAR = "VIETLOTT_FORCE_IPV6"
+
+
+def _force_ipv6() -> None:
+    import urllib3.util.connection as urllib3_conn
+
+    urllib3_conn.allowed_gai_family = lambda: socket.AF_INET6
 
 # Vietlott sits behind Cloudflare and rejects requests that don't look like a
 # real browser. Sending a full set of browser headers (notably a Vietnamese
@@ -34,6 +46,8 @@ class Fetcher:
         if http is not None:
             self._http = http
         else:
+            if os.environ.get(FORCE_IPV6_ENV_VAR):
+                _force_ipv6()
             self._http = CloudScraper()
             self._http.headers.update(BROWSER_HEADERS)
             proxy = os.environ.get(PROXY_ENV_VAR)

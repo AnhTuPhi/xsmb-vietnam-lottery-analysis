@@ -64,3 +64,17 @@ def test_fetcher_no_proxy_when_env_unset(monkeypatch):
     fetcher = Fetcher()
 
     assert "http" not in fetcher._http.proxies
+
+
+def test_fetcher_forces_ipv6_when_env_set(monkeypatch):
+    import socket
+
+    import urllib3.util.connection as urllib3_conn
+
+    original = urllib3_conn.allowed_gai_family
+    monkeypatch.setattr(urllib3_conn, "allowed_gai_family", original)
+    monkeypatch.setenv("VIETLOTT_FORCE_IPV6", "1")
+
+    Fetcher()
+
+    assert urllib3_conn.allowed_gai_family() == socket.AF_INET6

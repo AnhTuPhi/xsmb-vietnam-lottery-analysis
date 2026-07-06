@@ -73,6 +73,8 @@ jobs:
         run: python src/vietlott_fetch.py
         env:
           VIETLOTT_PROXY: ${{ secrets.VIETLOTT_PROXY }}
+          # WARP tunnels IPv6 only on CI, so force the fetch over IPv6.
+          VIETLOTT_FORCE_IPV6: "1"
 
       - name: get current date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
